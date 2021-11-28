@@ -1,4 +1,4 @@
-language: generic
+language: node
 sudo: require
 services:
   - docker
@@ -8,5 +8,5 @@ before_install:
 
 script:
   #- docker run -e CI=true frontend:dev npm run test
-  - docker run frontend:dev npm run test -- --coverage
+  - docker run -e CI=true frontend:dev npm run test -- --coverage
  
