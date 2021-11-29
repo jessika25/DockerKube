@@ -10,3 +10,15 @@ script:
   #- docker run -e CI=true frontend:dev npm run test
   - docker run -e CI=true frontend:dev npm run test -- --coverage
  
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: Dockerapp
+  env: "Dockerapp-env"
+  bucket_name: "elasticbeanstalk-us-east-1-336766156153"
+  bucket_path: "Dockerapp"
+  on:
+    branch: main
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: 
+  secure: "$AWS_SECRET_KEY"
